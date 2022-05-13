@@ -1,6 +1,3 @@
-from tabnanny import check
-
-
 class Room:
 
     def __init__(self, name, capacity, entry_fee):
@@ -23,13 +20,10 @@ class Room:
     def remove_guest(self, guest):
         self.guests.remove(guest)
 
-    def check_in_guest(self, guest):
-        if self.check_space_available():
-            self.add_guest(guest)
-
 #Functionality for adding songs to playlist
     def add_song(self, song):
         self.songs.append(song)
 
     def remove_song(self, song):
-        self.songs.remove(song)
+        if len(self.songs) > 0:
+            self.songs.remove(song)

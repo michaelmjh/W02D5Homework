@@ -1,5 +1,5 @@
 import unittest
-# from tests.test_bar import TestBar
+from tests.test_bar import TestBar
 from tests.test_guest import TestGuest
 from tests.test_room import TestRoom
 # from tests.test_song import TestSong
