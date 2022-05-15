@@ -31,10 +31,22 @@ class TestRoom(unittest.TestCase):
         self.assertEqual(True, self.room_1.check_space_available())
 
     def test_check_space_available_false(self):
-        for _ in range(5):
-            self.room_1.add_guest(self.guest_1)
+        self.room_1.add_guest(self.guest_1)
+        self.room_1.add_guest(self.guest_3)
+        self.room_1.add_guest(self.guest_4)
+        self.room_1.add_guest(self.guest_5)
+        self.room_1.add_guest(self.guest_6)
+        self.room_1.add_guest(self.guest_7)
         
         self.assertEqual(False, self.room_1.check_space_available())
+
+    def test_check_already_checked_in_pass(self):
+        self.assertEqual(False, self.room_1.check_already_checked_in(self.guest_1))
+
+    def test_check_already_checked_in_fail(self):
+        self.room_1.add_guest(self.guest_1)
+        
+        self.assertEqual(True, self.room_1.check_already_checked_in(self.guest_1))
 
     def test_add_guest(self):
         self.room_1.add_guest(self.guest_1)

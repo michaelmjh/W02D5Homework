@@ -35,6 +35,13 @@ class TestBar(unittest.TestCase):
         self.assertEqual(1, len(self.room_1.guests))
         self.assertEqual(105, self.bar_1.till)
     
+    def test_check_in_guest_guest_already_checked_in(self):
+        self.bar_1.check_in_guest(self.room_1, self.guest_1)
+        self.bar_1.check_in_guest(self.room_1, self.guest_1)
+        
+        self.assertEqual(1, len(self.room_1.guests))
+        self.assertEqual(105, self.bar_1.till)
+
     def test_check_in_guest_no_space_available(self):
         self.bar_1.check_in_guest(self.room_1, self.guest_1)
         self.bar_1.check_in_guest(self.room_1, self.guest_3)

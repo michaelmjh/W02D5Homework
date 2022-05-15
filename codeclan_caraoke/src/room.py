@@ -14,6 +14,12 @@ class Room:
         else: 
             return False
 
+    def check_already_checked_in(self, guest):
+        if guest in self.guests:
+            return True
+        else:
+            return False
+
     def add_guest(self, guest):
         self.guests.append(guest)
 
